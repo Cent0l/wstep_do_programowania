@@ -1,0 +1,62 @@
+#include <iostream>
+#include<cstdlib>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	int a, b, c, z=0 ;
+	int T[4]{};
+	cout << "\t\t ZGADYWANIE LICZB\n\n";
+	cout << "podaj 3 liczby od 1 do 10\n";
+	cin >> a >> b >> c;
+	if (a > 10 || b > 10 || c > 10)
+	{
+		cout << "mialy byc do 10";
+		return 0;
+	}
+	if (a==b || a==c || b==c)
+	{
+		cout << "liczby nie moga sie powtarzac";
+		return 0;
+	}
+	cout << "twoje liczby to " << a << " " << b << " " << c<<endl;
+	cout << "wylosowane liczby to: \n";
+	for (int i = 1; i <= 3; i++)
+		{
+			T[i] = rand() % 10 + 1;
+			if (T[i] == T[i - 1])
+			{
+				T[i] = rand() % 10 + 1;
+				cout << "zmieniono liczbe\n";
+				if (T[i] == T[i - 1])
+				{
+					T[i] = rand() % 10 + 1;
+					cout << "zmieniono liczbe\n";
+				}
+			}
+			T[i] = rand() % 10 + 1;
+			if (T[i] == T[i - 2])
+			{
+				T[i] = rand() % 10 + 1;
+				cout << "zmieniono liczbe\n";
+				if (T[i] == T[i - 2])
+				{
+					T[i] = rand() % 10 + 1;
+					cout << "zmieniono liczbe\n";
+				}
+			}
+			cout << T[i] <<"\n";
+
+			if (T[i] == a || T[i] == b || T[i] == c)
+			{
+				z++;
+			}
+		}
+	
+
+cout << "\nilosc odgadnietych liczb = " << z;
+
+	
+
+
+}
