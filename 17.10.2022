@@ -1,0 +1,23 @@
+#include <iostream>
+//#include <cmath>
+using namespace std;
+int main()
+{
+	cout << "\t ZAJECIA NR 2!";
+	int a=1, b=-4, c=4, delta=0,x1=0, x2=0;
+	double pierwiastekZdelty;
+	//cout << "podaj wspolczynniki, a,b,c\n";
+	//cin >> a;
+	//cin >> b;
+	//cin >> c;
+	cout << endl<< a << "x^2+" << b << "x+" << c;
+	delta = b*b-4*a*c;
+	cout << "\ndelta= "<<delta;
+	pierwiastekZdelty = sqrt(delta);
+	cout << "\npierwiastek z delty=" << pierwiastekZdelty;
+	x1 = ((-b - pierwiastekZdelty) / 2 * a);
+	x2 = ((-b + pierwiastekZdelty) / 2 * a);
+	cout << "\nx1=" <<x1 << endl <<"x2="<< x2;
+
+}
+
