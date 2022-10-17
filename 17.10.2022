@@ -25,4 +25,4 @@ int main()
 	x2 = (-b + pierwiastekZdelty) / (2 * a);
 	cout << "\nx1=" << x1 << endl << "x2=" << x2 << endl;
 }
-
+bedzie na wejsciowce, ale bez tego co jest //
