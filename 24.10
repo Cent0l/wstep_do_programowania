@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+   cout << "ZAJECIA NR 3!!!\n";
+   vector<int>tab;//tab to nazwa
+   tab.push_back(10); //tworzy nowe "okienko", nie parzac na puste
+   cout << tab[0] << endl;//[odwoluje sie]
+   tab[0] = 8;//tak to se wpisujesz
+   cout << tab[0] << endl;
+   tab[0] -= 2;
+   cout << tab[0] << endl << endl;;
+   for (int i = 0; i < tab.size(); i++)//ee byq jak dlugi jestes
+   {
+       cout << tab[i] << endl;
+
+   }
+
+}
+
+
