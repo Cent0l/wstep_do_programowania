@@ -1,1 +1,77 @@
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void wypisz(vector<int>tab)
+{
+	for (int i = 0; i < tab.size(); i++)
+	{
+		cout << tab[i] << ",";
+	}
+}
+
+int max(vector<int>tab)
+{
+	int wynik = tab[0];
+	for (int i = 1; i < tab.size(); i++)
+	{
+		if (wynik < tab[i])
+			wynik = tab[i];
+
+	}
+	return wynik;
+}
+
+bool czy_nalezy(vector<int>tab, int element)
+{
+	for (int i = 0; i < tab.size(); i++)
+	{
+		if (element == tab[i])
+			return true;
+	}
+	return false;
+}
+
+bool czy_zawira(vector<int>tab1, vector<int>tab2)
+{
+	for (int i = 0; i < tab2.size(); i++)
+	{
+		if (czy_nalezy(tab1, tab2[i]) != true)
+			return false;
+	}
+return true;
+		
+}
+
+
+int main()
+{
+	vector<int>tab1 = {7,4,1,3,8,2};
+	vector<int>tab2 = { 2,4,1 };
+	int maxy;
+	wypisz(tab1);
+	cout << endl;
+	wypisz(tab2);
+	cout << endl;
+	maxy = max(tab1);
+	cout << "max= " << maxy << endl<<"\nczy 2 nalezy? \n";
+	if (czy_nalezy(tab1, 2) == 1)
+		cout << "nalezy\n";
+	else cout << "nie nalezy\n";
+	cout << "czy 9 nalezy \n";
+	if (czy_nalezy(tab1, 9) == 1)
+		cout << " nalezy\n\n";
+	else cout << "nie nalezy\n\n";
+
+	if (czy_zawira(tab1, tab2)==1)
+	cout << "tab2 zawiera sie w tab1\n";
+	else cout << "tab2 nie zawiera sie w tab1\n";
+
+
+ 
+}
+
+
+
