@@ -1,1 +1,100 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void wypisz(vector<int>tab)
+{
+	for (int i = 0; i < tab.size(); i++)
+	{
+		cout << tab[i] << ",";
+	}
+}
+
+int max(vector<int>tab)
+{
+	int wynik = tab[0];
+	for (int i = 1; i < tab.size(); i++)
+	{
+		if (wynik < tab[i])
+			wynik = tab[i];
+
+	}
+	return wynik;
+}
+
+bool czy_nalezy(vector<int>tab, int element)
+{
+	for (int i = 0; i < tab.size(); i++)
+	{
+		if (element == tab[i])
+			return true;
+	}
+	return false;
+}
+
+bool czy_zawiera(vector<int>tab1, vector<int>tab2)
+{
+	for (int i = 0; i < tab2.size(); i++)
+	{
+		if (czy_nalezy(tab1, tab2[i]) != true)
+			return false;
+	}
+	return true;
+
+}
+vector<int> unikalnosc(vector<int>tab)
+{
+	vector<int>wynik;
+	for (int i = 0; i < tab.size(); i++)
+	{
+		if (czy_nalezy(wynik, tab[i]) == false)
+					wynik.push_back(tab[i]);
+		}
+	return wynik;
+}
+
+int main()
+{
+	vector<int>tab1 = { 7,4,1,3,8,2 };
+	vector<int>tab2 = { 2,4,1 };
+	vector<int>tab3 = { 6,5,1,5,3,1,7,4 };
+	int maxy1,maxy2;
+	wypisz(tab1);
+	cout << endl;
+	wypisz(tab2);
+	cout << endl;
+	maxy1 = max(tab1);
+	maxy2 = max(tab2);
+	cout << "max od tab1= " << maxy1 << endl;
+	cout << "max od tab2= " << maxy2 << endl;
+	cout<< "\nczy 2 nalezy? \n";
+	if (czy_nalezy(tab1, 2) == 1)
+		cout << "nalezy\n";
+	else cout << "nie nalezy\n";
+	cout << "czy 9 nalezy \n";
+	if (czy_nalezy(tab1, 9) == 1)
+		cout << " nalezy\n\n";
+	else cout << "nie nalezy\n\n";
+	if (czy_zawiera(tab1, tab2) == 1)
+		cout << "tab2 zawiera sie w tab1\n";
+	else cout << "tab2 nie zawiera sie w tab1\n";
+	
+	
+}
+	//  ZAD: nalezy ze zbioru liczb wybrac liczby ktore wystepuja unikalnie(nie powtarza sie)
+	//  0. zrozumiec o co chodzi w zadaniu
+	//  1. wymysl przyklad do zadania, randomowo, nie za duzy, ale nie za maly, nie po kolei, jak najwiesza losowosc
+	//  	1.1 pierwszy przyklad pozytywny, potem skrajny.
+	//  2. Sprawdz czy przyklad jest kompletny
+	//  	2.1 kompletny jak nie za duzo ani nie za malo (nie ilosc, wazne zeby wystepowalo wszystko co potrzebne)
+	//  3. Sformalizowanie parametrow
+	//  	3.1 pytanie-czy i ile jest parametrow, oraz jakiego typu sa to parametry, oraz nazwa
+	//  4. Naglowek funkcji { typ danych nazwa(parametery) }
+	//  5. Cialo funkcji -> "algorytm", deklarujemy zmienną, która bedzie wynikiem
+	//  6. nie wiesz co pisac? to wroc do przykladu.
+	 
+	
+
+
 
