@@ -48,9 +48,9 @@ vector<int> unikalnosc(vector<int>tab)
 	vector<int>wynik;
 	for (int i = 0; i < tab.size(); i++)
 	{
-		if (czy_nalezy(wynik, tab[i]) == false)
+		if (!czy_nalezy(wynik, tab[i]))
 					wynik.push_back(tab[i]);
-		}
+	}
 	return wynik;
 }
 
