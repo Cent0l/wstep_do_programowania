@@ -1,1 +1,127 @@
 
+#include <vector>
+#include <iostream>
+using namespace std;
+
+void wypisz(vector<int>tab)
+{
+    for (int i = 0; i < tab.size(); i++)
+    {
+        cout << tab[i] << " ; ";
+    }
+
+}
+
+
+int max(vector<int>tab)
+{
+    int max = tab[0];
+    for (int i = 1; i < tab.size(); i++)
+    {
+        if (max < tab[i]) max = tab[i];
+
+    }
+    return max;
+
+}
+
+bool czy_nalezy(vector<int>tab, int element)
+{
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (tab[i] == element)
+            return true;
+    }
+    return false;
+
+}
+bool czy_zawiera(vector<int>a, vector<int>b)
+{
+    for (int i = 0; i < b.size(); i++)
+    {
+        if (czy_nalezy(a, b[i]) == false)
+            return false;
+    }
+    return true;
+}
+vector<int>unikalnosc(vector<int>tab)
+{
+    vector<int>wynik;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (czy_nalezy(wynik, tab[i]) == false)
+            wynik.push_back(tab[i]);
+    }
+    return wynik;
+}
+
+vector<int>wypisz4(vector<int>tab,int parametr,int reszta=0)
+{
+    vector<int>wynik;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (tab[i] % parametr == reszta) {
+            wynik.push_back(tab[i]);
+        }
+    }
+    return wynik;
+}
+int suma(vector<int>tab)
+{
+    int sum = 0;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        sum += tab[i];
+    }
+    return sum;
+}
+
+double srednia(vector<int>tab)
+{
+    return (double)suma(tab) / tab.size();
+}
+
+int main()
+{
+    vector<int>tab1 = { 1,9,2,3 };
+    vector<int>tab2 = { 1,9 };
+    vector<int>tab3 = { 1,9,1,6,9,3,1,4 };
+    vector<int>sum = {1,2,3,4,6,8,12,13,16};
+    wypisz(tab1);
+    cout << endl;
+    wypisz(tab2);
+    cout << endl << endl;
+    int m = max(tab1);
+    cout << m << endl << endl;
+    cout << czy_nalezy(tab1, 3);
+    cout<<endl << endl;
+    cout << czy_zawiera(tab1, tab2);
+    vector<int>uni = unikalnosc(tab3);
+    cout << endl << endl;
+    wypisz(uni);
+    cout << endl;
+    cout << "suma " << suma(sum)<<endl;
+    cout << "sr " << srednia(sum)<<endl;
+    vector<int>prze = wypisz4(sum,4);
+    int para;
+    cin >> para;
+    wypisz4(prze,para);
+    cout << endl;
+
+
+
+
+}
+//  ZAD: nalezy ze zbioru liczb wybrac liczby ktore wystepuja unikalnie(nie powtarza sie)
+    //  0. zrozumiec o co chodzi w zadaniu
+    //  1. wymysl przyklad do zadania, randomowo, nie za duzy, ale nie za maly, nie po kolei, jak najwiesza losowosc
+    //  	1.1 pierwszy przyklad pozytywny, potem skrajny.
+    //  2. Sprawdz czy przyklad jest kompletny
+    //  	2.1 kompletny jak nie za duzo ani nie za malo (nie ilosc, wazne zeby wystepowalo wszystko co potrzebne)
+    //  3. Sformalizowanie parametrow
+    //  	3.1 pytanie-czy i ile jest parametrow, oraz jakiego typu sa to parametry, oraz nazwa
+    //  4. Naglowek funkcji { typ danych nazwa(parametery) }
+    //  5. Cialo funkcji -> "algorytm", deklarujemy zmienną, która bedzie wynikiem
+    //  6. nie wiesz co pisac? to wroc do przykladu.
+
+
