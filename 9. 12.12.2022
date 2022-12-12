@@ -2,3 +2,124 @@ dom:
 zamien wszystkie petle for na while
 i umiec wczytywac pliki, zapisywac do pliki itp
 mapa(zdj w tel)
+
+//do domu, zamien petle for na petle while;
+plus wpisac w main mape (zdj)
+#include <iostream>
+#include<vector>
+#include<map>
+using namespace std;
+void wypisz(vector<int>tab)
+{
+    for (int i = 0; i < tab.size(); i++)
+    {
+        cout << tab[i] << ", ";
+    }
+
+}
+int max(vector<int>tab)
+{
+    int max = tab[0];
+    for (int i = 1; i < tab.size(); i++)
+    {
+        if (max < tab[i]) max = tab[i];
+    }
+    return max;
+}
+vector<int>podzielnosc(vector<int>tab)
+{
+    vector<int>wynik;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (tab[i] % 2 == 0)
+            wynik.push_back(tab[i]);
+
+    }
+    return wynik;
+}
+
+int suma(vector<int>tab)
+{
+    int sum = 0;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        sum = sum+tab[i];
+    }
+    return sum;
+}
+double srednia(vector<int>tab)
+{
+    return (double)suma(tab) / tab.size();
+    
+}
+bool czy_nalezy(vector<int>tab, int element)
+{
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (tab[i] == element)
+            return true;
+    }
+    return false;
+}
+bool czy_zawiera(vector<int>a, vector<int>b)
+{
+    for (int i = 0; i < b.size(); i++)
+    {
+        if (czy_nalezy(a, b[i]) == false)
+            return false;
+    }
+    return true;
+
+}
+vector<int>unikalnosc(vector<int>tab)
+{
+    vector<int>wynik;
+        for (int i = 0; i < tab.size(); i++)
+        {
+            if (czy_nalezy(wynik, tab[i]) == false)
+                wynik.push_back(tab[i]);
+        }
+    return wynik;
+}
+//8,7,1,2,2,7,8,7,2
+void wystepowanie(vector<int>tab)
+{
+    int a = 0;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        for (int j = 0; j < tab.size(); j++)
+        {
+            if (tab[i] == tab[j]) a++;
+        }
+        cout <<tab[i]<<"-"<< a<<"razy\n";
+        a = 0;
+    }
+}
+
+int main()
+{
+    vector<int>tab1 = { 1,2,3,3,4,5,6,7,5,4 };
+    vector<int>tab2 = { 1,2,3};
+    vector<int>tab3 = {8,7,1,2,2,7,8,7,2};//8-2 razy,7-3,1-1,2-3;
+    wypisz(tab1);
+    cout << endl;
+    int sum;
+    sum = suma(tab2);
+    cout << sum << endl << endl;
+    cout << czy_nalezy(tab2, 1) << endl << endl;
+    cout << czy_zawiera(tab1,tab2) << endl << endl;
+    vector<int>uni;
+    uni = unikalnosc(tab1);
+    wypisz(uni);
+    cout << endl << endl;
+    double sr = 0;
+    sr = srednia(tab2);
+    cout << sr << endl << endl;
+    wystepowanie(tab3);
+    
+
+
+
+}
+//1. przyklad 2.kompletnosc przykladu 3.formalizacja parametrow 4. naglowek funkcji 5.cialo funkcji 6. jak nie idzie to od poczatku
+
