@@ -22,3 +22,15 @@
        cout << in.first << ": ";
        cout << in.second << endl;
     }
+    
+    vector<int> konwersja(int liczba)
+{
+    vector<int>wynik;
+    do
+    {
+        int pom = liczba % 10;
+        wynik.push_back(pom);
+        liczba = (liczba - pom) / 10;
+    } while (liczba > 0);
+return wynik;
+}
