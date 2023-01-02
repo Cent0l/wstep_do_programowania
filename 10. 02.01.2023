@@ -1,0 +1,24 @@
+   map<int, int> liczba;
+    //nazwa.insert({indeks,liczba})
+    // wywolanie:
+    //for (auto& el : m) {
+    //    cout << el.first << ": ";
+    //    cout << el.second << ", ";
+    //}
+    int l = 0;
+    cin >> l;
+    int pom = 0;
+    int i = 0;
+    do
+    {
+        pom = l % 10;
+        l = (l - pom) / 10;
+        liczba.insert({ i,pom });
+        i++;
+    } 
+    while (l > 0);
+
+    for (auto& in : liczba) {
+       cout << in.first << ": ";
+       cout << in.second << endl;
+    }
