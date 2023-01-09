@@ -34,3 +34,49 @@
     } while (liczba > 0);
 return wynik;
 }
+
+
+GOTOWE RZECZY
+vector<int> konwersja(int liczba)
+{
+    vector<int>wynik;
+    do
+    {
+        int pom = liczba % 10;
+        wynik.push_back(pom);
+        liczba = (liczba - pom) / 10;
+    } while (liczba > 0);
+return wynik;
+}
+vector<int> sumadw(int a, int b)
+{
+    vector<int>wynik;
+    vector<int>a1 = konwersja(a);
+    vector<int>b1 = konwersja(b);
+    int i = 0;
+    do
+    {
+        if ((a1[i] + b1[i]) >= 10)
+        {
+            wynik.push_back((a1[i] + b1[i]) % 10);
+                a1[i + 1]++;
+        }
+        else
+        {
+            wynik.push_back(a1[i] + b1[i]);
+        }
+        i++;
+
+    } while (i<a1.size());
+        return wynik;
+}
+
+int main()
+{
+    vector<int>l1 = konwersja(3246);
+    wypisz(l1);
+    vector<int>l2 = sumadw(256, 256);
+    wypisz(l2);
+
+
+}
